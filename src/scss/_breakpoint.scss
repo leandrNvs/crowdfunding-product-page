@@ -1,0 +1,17 @@
+@use 'variables' as var;
+
+@mixin max($breakpoint: 'md') {
+  $break: map-get(var.$breakpoints, $breakpoint);
+
+  @media (max-width: $break) {
+    @content;
+  }
+}
+
+@mixin min($breakpoint: 'md') {
+  $break: map-get(var.$breakpoints, $breakpoint);
+
+  @media (min-width: $break) {
+    @content;
+  }
+}

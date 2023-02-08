@@ -1,0 +1,178 @@
+@use 'variables' as var;
+@use 'breakpoint' as media;
+
+.modal {
+  background-color: #fff;
+  z-index: 2;
+  border-radius: var.$border-radius;
+  padding: 2rem;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: .5s;
+  margin: 2rem 0;
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    color: var.$dark-gray;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  button {
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    right: 3rem;
+  }
+
+  .card {
+    cursor: pointer;
+    padding: 2rem 0;
+
+    &.active {
+      border-width: 2px;
+      border-color: var.$dark-cyan;
+    }
+
+    &__header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: .9rem;
+
+      >div h3 {
+        margin-bottom: .5rem;
+      }
+
+      >div>div {
+        display: none;
+      }
+    }
+
+    &__description {
+      padding: 0 1.5rem;
+    }
+
+    &__icon {
+      height: 30px;
+      width: 30px;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      position: relative;
+
+      &.active::before {
+        content: '';
+        display: block;
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        background-color: var.$dark-cyan;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &__footer>div {
+      margin-bottom: 0;
+    }
+
+    &__input {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 1.5rem;
+      column-gap: .7rem;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid rgba(var.$dark-gray, 0.2);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+
+      @include media.min() {
+        justify-content: flex-start;
+
+        padding: {
+          left: 1.5rem;
+          right: 1.5rem;
+        }
+      }
+
+      label {
+        flex-basis: 100%;
+        text-align: center;
+        color: var.$dark-gray;
+
+        @include media.min() {
+          margin-right: auto;
+          flex-basis: auto;
+        }
+      }
+
+      input {
+        border: 1px solid rgba(var.$dark-gray, 0.4);
+        font-weight: 600;
+        height: 50px;
+        border-radius: 50px;
+        width: 100px;
+        padding: 0 1rem;
+        text-align: center;
+        font-size: 18px;
+        background: url('../assets/images/icon-dollar.svg') no-repeat left .6rem center;
+      }
+
+      button {
+        background-color: rgba(var.$dark-cyan, 0.7);
+        position: static;
+
+        &:hover {
+          background-color: var.$dark-cyan;
+        }
+      }
+    }
+  }
+
+  &.completed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    max-width: 400px;
+
+
+    button {
+      position: static;
+      background-color: rgba(var.$dark-cyan, 0.7);
+      padding: 0 2rem;
+      height: 50px;
+      border-radius: 50px;
+      color: #fff;
+      font-weight: 500;
+
+      :hover {
+        background-color: var.$dark-cyan;
+      }
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

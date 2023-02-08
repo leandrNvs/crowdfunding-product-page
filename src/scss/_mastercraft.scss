@@ -1,0 +1,208 @@
+@use 'variables' as var;
+@use 'breakpoint' as media;
+
+.mastercraft {
+  &__header {
+    background-color: #fff;
+    color: var.$black;
+    border-radius: var.$border-radius;
+    position: relative;
+    padding: 4rem 1.5rem 3rem;
+    text-align: center;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+      color: var.$dark-gray;
+    }
+
+    div {
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      margin-top: 1.5rem;
+
+      @include media.min() {
+        justify-content: space-between;
+        width: 85%;
+
+        margin: {
+          left: auto;
+          right: auto;
+        }
+
+      }
+
+      button {
+        border: 0;
+        background-color: transparent;
+
+        &:not(.bookmark) {
+          flex: 1;
+          background-color: rgba(var.$dark-cyan, 0.7);
+          border-radius: 50px;
+          color: #fff;
+          max-width: 200px;
+          font-weight: 500;
+
+          &:hover {
+            background-color: var.$dark-cyan;
+          }
+        }
+
+        &.bookmark {
+          display: flex;
+          flex-basis: content;
+
+          @include media.min() {
+            position: relative;
+
+            img {
+              position: absolute;
+              top: -3px;
+            }
+          }
+
+          span {
+            display: none;
+
+            @include media.min() {
+              display: block;
+              background-color: rgba(var.$dark-gray, .15);
+              color: var.$dark-gray;
+              font-weight: 500;
+
+              padding: {
+                left: 70px;
+                right: 40px;
+              }
+
+              border-radius: 50px;
+              line-height: 48px;
+            }
+          }
+
+          &.active {
+
+            span {
+              color: var.$dark-cyan;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  &__decoration {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__stats {
+    background-color: #fff;
+    border-radius: var.$border-radius;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+
+    @include media.min() {
+      flex-direction: row;
+      flex-wrap: wrap;
+      row-gap: unset;
+    }
+
+    >div {
+      @include media.max() {
+        text-align: center;
+      }
+
+      @include media.min() {
+        width: 150px;
+      }
+
+      span {
+        display: block;
+      }
+
+      .number {
+        font-size: 2rem;
+        font-weight: 900;
+        margin-bottom: .7rem;
+
+        @include media.min() {
+          font-size: 1.5rem;
+        }
+      }
+
+      .text {
+        color: var.$dark-gray;
+        font-size: 0.9rem;
+      }
+    }
+
+    .divider {
+      background-color: rgba(var.$dark-gray, .5);
+      margin: 0 auto;
+
+      @include media.min() {
+        height: 70px;
+        width: 1px;
+      }
+
+      @include media.max() {
+        width: 90px;
+        height: 1px;
+      }
+    }
+
+    .progress {
+      background-color: rgba(var.$dark-gray, .2);
+      height: 15px;
+      border-radius: 15px;
+      width: 100%;
+
+      @include media.min() {
+        margin-top: 2rem;
+      }
+
+      .bar {
+        width: 80%;
+        height: 100%;
+        border-radius: inherit;
+        background-color: var.$dark-cyan;
+      }
+    }
+
+  }
+
+  &__about {
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: var.$border-radius;
+
+    h2 {
+      margin-bottom: 2rem;
+      font-size: 1.3rem;
+    }
+
+    >p {
+      color: var.$dark-gray;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

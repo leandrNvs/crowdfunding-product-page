@@ -1,0 +1,102 @@
+@use 'breakpoint' as media;
+
+$breakpoint: 750px;
+$side-padding: 1rem;
+
+.header {
+  position: relative;
+
+  &__logo {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__container {
+    padding: 2rem $side-padding;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+
+    @include media.min() {
+      padding: {
+        left: 0;
+        right: 0;
+        top: 2.5rem;
+      }
+
+      width: 80%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__button {
+    position: relative;
+    z-index: 2;
+    background-color: transparent;
+    border: 0;
+
+    @include media.min() {
+      display: none;
+    }
+  }
+
+  &__desktop {
+    display: none;
+  }
+
+  @include media.min() {
+    +.overlay {
+      display: none;
+    }
+
+    &__mobile {
+      display: none;
+    }
+
+    &__desktop {
+      display: block;
+    }
+  }
+}
+
+.navbar {
+  a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 1rem;
+  }
+
+  @include media.max() {
+    background-color: #fff;
+    border-radius: 0.4rem;
+    width: calc(100% - $side-padding * 2);
+    position: absolute;
+    top: 6rem;
+    left: 50%;
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s ease;
+    transform: translateX(-50%);
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    a {
+      display: block;
+      padding: 1rem;
+      font-weight: 500;
+      color: #000;
+
+      +a {
+        border-top: 1px solid #ddd;
+      }
+    }
+  }
+}

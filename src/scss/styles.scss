@@ -1,0 +1,27 @@
+@use "reset";
+@use 'variables' as var;
+@use 'breakpoint' as media;
+@use 'generics';
+@use "header";
+@use 'mastercraft';
+@use 'card';
+@use 'modal';
+
+body {
+  background-color: #f2f2f2;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 1.5rem;
+  width: 90%;
+  margin: -15% auto 3rem;
+  position: relative;
+  z-index: 0;
+
+  @include media.min() {
+    margin-top: -6%;
+    width: 60%;
+  }
+}
