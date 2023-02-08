@@ -26,9 +26,7 @@ export default function MastercraftHeader({ setModal }) {
       </p>
       <div>
         <button onClick={handleClick}>
-          <a style={{ textDecoration: "none", color: "#fff" }} href="#overlay">
-            Back this project
-          </a>
+          Back this project
         </button>
         <button
           className={`bookmark ${isActive ? "active" : ""}`}
