@@ -32,7 +32,6 @@ Users should be able to:
 ![](./desktop.png)
 ![](./modal.png)
 ![](./mobile.png)
-![](./modal-mobile.png)
 
 ### Links
 
