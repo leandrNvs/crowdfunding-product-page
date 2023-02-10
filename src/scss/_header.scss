@@ -59,6 +59,8 @@ $side-padding: 1rem;
 
     &__desktop {
       display: block;
+      max-width: unset;
+      width: 100%
     }
   }
 }
